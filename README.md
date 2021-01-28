@@ -14,21 +14,24 @@ go build main.go
 ```bash
 Usage of ./main:
   -app string
-    	application name (default "app")
+    	application name (默认是deployment的名字)
   -deployment string
     	deployment name
   -image string
     	new image name
   -kubeconfig string
     	(optional) absolute path to the kubeconfig file (default "/Users/jimmy/.kube/config")
+  -ns string
+        命名空间(默认命名空间是 default)
 ```
 
-- `-image`: new image name
+- `-image`: 需要更新的镜像名字
 - `-deployment`: deployment name
-- `-app`: (optional) application container name (default: app)
-- `-kubeconfig`: (optional) absolute path to the kubeconfig file (default "$HOME/.kube/config")
+- `-app`: 应用的app名字
+- `-kubeconfig`: k8s应用文件 (default "$HOME/.kube/config")
+- '-ns': 命名空间名字 默认是 default
 
-## Example
+## 例子
 
 ```bash
 ./update-deployment-image -image test:Build_8 -deployment filebeat-test
